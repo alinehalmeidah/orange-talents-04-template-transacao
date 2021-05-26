@@ -37,7 +37,7 @@ public class KafkaConfiguration {
     @Bean
     public ConsumerFactory<String, TransacaoMensagem> transactionConsumerFactory() {
         StringDeserializer stringDeserializer = new StringDeserializer();
-        JsonDeserializer<TransacaoMensagem> jsonDeserializer = new JsonDeserializer<>(TransacaoMensagem.class, false);
+        JsonDeserializer jsonDeserializer = new JsonDeserializer<>(TransacaoMensagem.class, false);
 
         return new DefaultKafkaConsumerFactory<>(consumerConfigurations(), stringDeserializer, jsonDeserializer);
     }
