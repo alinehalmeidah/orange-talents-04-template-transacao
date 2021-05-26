@@ -11,6 +11,11 @@ public class EstabelecimentoResponse {
         this.cidade = cidade;
         this.endereco = endereco;
     }
+    public EstabelecimentoResponse(Estabelecimento estabelecimento) {
+        this.nome = estabelecimento.getNome();
+        this.cidade = estabelecimento.getCidade();
+        this.endereco = estabelecimento.getEndereco();
+    }
 
     @Deprecated
     public EstabelecimentoResponse() {}

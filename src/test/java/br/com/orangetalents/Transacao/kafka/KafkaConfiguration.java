@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
+import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,7 +37,7 @@ public class KafkaConfiguration {
     @Bean
     public ConsumerFactory<String, TransacaoMensagem> transactionConsumerFactory() {
         StringDeserializer stringDeserializer = new StringDeserializer();
-        JsonDeserializer< TransacaoMensagem > jsonDeserializer = new JsonDeserializer<>(TransacaoMensagem.class, false);
+        JsonDeserializer<TransacaoMensagem> jsonDeserializer = new JsonDeserializer<>(TransacaoMensagem.class, false);
 
         return new DefaultKafkaConsumerFactory<>(consumerConfigurations(), stringDeserializer, jsonDeserializer);
     }
